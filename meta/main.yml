@@ -1,7 +1,7 @@
 ---
 
 galaxy_info:
-  role_name: ginhouxnet.fstab
+  role_name: fstab
   description: configure fstab
   author: dginhoux
   company: ginhouxnet
