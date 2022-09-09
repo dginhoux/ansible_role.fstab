@@ -6,8 +6,7 @@
     group: root
     mode: 0644
     src: fstab.j2
-  # notify: fstab_update
-
+   # notify: fstab_update
 
 - name: create additional mount directories
   file:
@@ -20,13 +19,11 @@
     and
     item.target != "none"
 
-
 - name: systemd reload-daemon
   systemd:
-    daemon_reload: yes
+    daemon_reload: true
   # listen: fstab_update
   when: ansible_service_mgr == "systemd"
-
 
 - name: mount -a
   shell:
