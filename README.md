@@ -1,4 +1,4 @@
-ginhouxnet.fstab
+Ansible Role : dginhoux.fstab
 =========
 
 This ansible role configure `/etc/fstab`
