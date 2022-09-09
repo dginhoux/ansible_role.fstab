@@ -1,7 +1,7 @@
 ginhouxnet.fstab
 =========
 
-This ansible role configure fstab
+This ansible role configure `/etc/fstab`
 
 
 Requirements
@@ -21,6 +21,7 @@ Dependencies
 ------------
 
 none
+
 
 Example Playbook
 ----------------
