@@ -1,6 +1,6 @@
 ---
 - name: configure fstab
-  template:
+  ansible.builtin.template:
     dest: /etc/fstab
     owner: root
     group: root
@@ -9,7 +9,7 @@
    # notify: fstab_update
 
 - name: create additional mount directories
-  file:
+  ansible.builtin.file:
     path: "{{ item.target }}"
     state: directory
   loop: "{{ fstab_mounts }}"
@@ -20,13 +20,13 @@
     item.target != "none"
 
 - name: systemd reload-daemon
-  systemd:
+  ansible.builtin.systemd:
     daemon_reload: true
   # listen: fstab_update
   when: ansible_service_mgr == "systemd"
 
 - name: mount -a
-  shell:
+  ansible.builtin.shell:
     cmd: mount -a
   # listen: fstab_update
   when: >
