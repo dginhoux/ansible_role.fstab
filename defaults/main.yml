@@ -1,6 +1,5 @@
 ---
 fstab_configure: true
-fstab_need_gluster_client: true
 
 fstab_reload: true
 fstab_create_additional_dirs: true

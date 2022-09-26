@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: fstab
-  description: configure fstab
+  description: dginhoux.fstab
   author: Dany GINHOUX
   company: dginhoux
   license: MIT
