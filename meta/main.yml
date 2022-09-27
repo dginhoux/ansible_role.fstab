@@ -1,7 +1,8 @@
 ---
 galaxy_info:
   role_name: fstab
-  description: dginhoux.fstab
+  description: |
+    This role configure linux mounts and generate `/etc/fstab`.
   author: Dany GINHOUX
   company: dginhoux
   license: MIT

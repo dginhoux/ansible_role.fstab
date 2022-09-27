@@ -4,7 +4,7 @@
 
 ## DESCRIPTION
 
-This role configure linux mounts and generate `/etc/fstab`
+This role configure linux mounts and generate `/etc/fstab`.
 
 
 
