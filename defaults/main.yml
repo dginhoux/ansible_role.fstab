@@ -2,6 +2,8 @@
 fstab_configure: true
 
 fstab_reload: true
+fstab_reload_method: mount
+
 fstab_create_additional_dirs: true
 
 fstab_tmpfs: false
@@ -13,12 +15,12 @@ fstab_tmpfs_options:
 fstab_sysfs: true
 fstab_sysfs_options:
   - defaults
-  - noatime
+  # - noatime
 
 fstab_proc: true
 fstab_proc_options:
   - defaults
-  - noatime
+  # - noatime
 
 fstab_mounts:
   - source: /dev/sda1
