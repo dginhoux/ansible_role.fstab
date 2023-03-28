@@ -28,13 +28,19 @@
   # listen: fstab_update
   when: ansible_service_mgr == "systemd"
 
-- name: Run mount -a
+- name: Run mount all
   ansible.builtin.shell:
-    cmd: mount -a
+    cmd: "/usr/bin/mount -a"
   # listen: fstab_update
   when: >
     fstab_reload
     and
     fstab_reload_method == "mount"
-  args:
-    warn: false
+  # args:
+  #   warn: false
+
+# - name: Run mount 
+#   ansible.posix.mount:
+#     path: "{{ item.target }}"
+#     state: ephemeral
+#   loop: "{{ fstab_mounts }}"
