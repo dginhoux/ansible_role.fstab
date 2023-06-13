@@ -9,6 +9,9 @@
    # notify: fstab_update
 
 - name: Create additional mount directories
+  when:
+    - fstab_create_additional_dirs
+    - item.target != "none"
   ansible.builtin.file:
     path: "{{ item.target }}"
     state: directory
@@ -17,25 +20,20 @@
     mode: "0755"
   loop: "{{ fstab_mounts }}"
   # listen: fstab_update
-  when: >
-    fstab_create_additional_dirs
-    and
-    item.target != "none"
 
 - name: Systemd reload-daemon
+  when: ansible_service_mgr == "systemd"
   ansible.builtin.systemd:
     daemon_reload: true
   # listen: fstab_update
-  when: ansible_service_mgr == "systemd"
 
 - name: Run mount all
+  when:
+    - fstab_reload
+    - fstab_reload_method == "mount"
   ansible.builtin.shell:
     cmd: "/usr/bin/mount -a"
   # listen: fstab_update
-  when: >
-    fstab_reload
-    and
-    fstab_reload_method == "mount"
   # args:
   #   warn: false
 
