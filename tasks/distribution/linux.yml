@@ -31,7 +31,7 @@
   when:
     - fstab_reload
     - fstab_reload_method == "mount"
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: "/usr/bin/mount -a"
   # listen: fstab_update
   # args:
